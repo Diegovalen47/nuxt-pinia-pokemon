@@ -27,17 +27,5 @@ export const actions = {
       newPokemons.push(newPokemon)
     }
     commit('changePokemons', newPokemons)
-
-    // response.results.forEach(async pokemon => {
-    //   let pokemonData = {}
-    //   pokemonData.name = pokemon.name
-    //   const specific_pokemon = await this.$axios.$get(pokemon.url)
-    //   const spedific_pokemon_data = await this.$axios.$get(specific_pokemon.forms[0].url)
-    //   pokemonData.id = spedific_pokemon_data.id
-    //   pokemonData.image = spedific_pokemon_data.sprites.front_default
-    //   pokemonData.types = specific_pokemon.types.map(type => type.type.name)
-    //   const newPokemon = new Pokemon(pokemonData)
-    //   commit('changePokemons', [...state.pokemons, newPokemon])
-    // })
   }
 }
