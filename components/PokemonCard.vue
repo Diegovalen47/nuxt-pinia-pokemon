@@ -14,7 +14,7 @@
           <v-card-title class="d-flex flex-row justify-space-between">
             <div>
               <h3>
-                {{ capitalizedName }}
+                {{ capitalizeName(pokemon.name) }}
               </h3>
             </div>
             <div>
@@ -34,7 +34,7 @@
                 :key="type"
               >
                 <h5>
-                  {{ type }}
+                  {{ capitalizeName(type) }}
                 </h5>
               </v-col>
             </v-row>
@@ -54,13 +54,10 @@ export default {
       required: true
     }
   },
-  computed: {
-    capitalizedName() {
-      return this.pokemon.name.charAt(0).toUpperCase() + this.pokemon.name.slice(1)
+  methods: {
+    capitalizeName(name) {
+      return name.charAt(0).toUpperCase() + name.slice(1)
     }
-  },
-  mounted() {
-    console.log(this.pokemon)
   }
 }
 </script>

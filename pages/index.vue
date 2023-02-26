@@ -8,17 +8,21 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { usePokemonStore } from '@/store/indexPinia'
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      pokemonsStore: usePokemonStore(),
+    }
+  },
   computed: {
-    ...mapState(['pokemons'])
+    pokemons() {
+      return this.pokemonsStore.pokemons
+    }
   },
   async created() {
-    await this.fetchPokemons()
+    await this.pokemonsStore.fetchPokemons()
   },
-  methods: {
-    ...mapActions(['fetchPokemons'])
-  }
 }
 </script>
